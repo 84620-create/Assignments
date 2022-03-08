@@ -49,7 +49,7 @@ class Assignment1{
 	    System.out.println("Input string : " + s);
 	    System.out.println("Reverse string : " + obj.reverseString(s));
 	    System.out.println("string is " + obj.isPalindrome(s));
-	    System.out.println("Capitalization of first letter of each word of given string : " + obj.capitalizeString(s));
+	    System.out.println("Capitalization of first letter of each word of given string  : " + obj.capitalizeString(s));
 		
 	}
 }
