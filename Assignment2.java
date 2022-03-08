@@ -52,7 +52,7 @@ public class Assignment2{
         System.out.print("Enter the number  : ");
         int m = scanner.nextInt();
         System.out.println();
-        System.out.print(m + "th highest number : ");
+        System.out.print(m + " th highest number : ");
         System.out.println(arr[n-m]);
     }
 }
