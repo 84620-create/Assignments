@@ -3,9 +3,6 @@ public class stack {
     private int size = 100;
     private int st[] = new int[size];
 
-    private boolean isEmpty(){
-        return (top < 0);
-    }
     private void top(){
         if(top >= 0)
             System.out.println("Value at the top of Stack : " + st[top]);
@@ -18,10 +15,28 @@ public class stack {
             return false;
         }
     }
-    private int pop(){
-        int x = st[top];
-        top--;
-        return x;
+    private void isStackOverflow(){
+        if(top >= 100){
+            System.out.println("Stack overflow.....");
+        }else{
+            System.out.println("Stack not in overflow.....");
+        }
+    }
+  
+    private void isStackUnderflow(){
+          if(top == -1){
+            System.out.println("Stack underflow.....");
+          }else{
+            System.out.println("Stack not in underflow.....");
+          } 
+      }
+    private void pop(){
+        if(top == -1){
+            System.out.println("Stack underflow.....");
+
+        }else{
+            System.out.println("poped element : " + st[top--]);
+        }
     }
     private void display(){
         if(top < 0 ){
@@ -42,6 +57,7 @@ public class stack {
         s.push(94);
         s.display();
         s.top();
-        s.isEmpty();
+        s.isStackUnderflow();
+        s.isStackOverflow();
     }
 }
