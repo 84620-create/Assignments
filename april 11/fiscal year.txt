@@ -1,0 +1,3 @@
+# fiscal year
+
+SELECT CALENDAR_MONTH(StartDate), Name FROM FiscalYearSettings GROUP BY StartDate,Name

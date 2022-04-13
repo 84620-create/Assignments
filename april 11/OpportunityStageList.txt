@@ -1,0 +1,16 @@
+# List of opportunities with stage equals to 'Prospecting'.
+
+List<Opportunity> oppList = new List<Opportunity>();
+    oppList = [SELECT Account.Name,StageName FROM Opportunity];
+    List<Opportunity> newOppList = new List<Opportunity>();
+    for(Opportunity opportunity : oppList){
+        if(opportunity.StageName.equals('Prospecting')){
+            newOppList.add(opportunity);
+        } 
+            
+    }
+    system.debug(newOppList);
+
+# SOQL Query
+
+SELECT Id, Name, StageName FROM Opportunity where StageName = 'Prospecting';
