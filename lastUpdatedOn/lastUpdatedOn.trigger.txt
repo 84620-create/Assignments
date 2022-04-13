@@ -1,0 +1,6 @@
+trigger lastUpdatedOn on Contact (after update) {
+    if(Trigger.isUpdate && lastUpdated.isRunning){
+       lastUpdated.lastUpdatedOn(Trigger.newMap.keySet()); 
+              system.debug(lastUpdated.isRunning);
+    }
+}

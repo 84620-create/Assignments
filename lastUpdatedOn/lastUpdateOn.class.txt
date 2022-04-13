@@ -1,0 +1,19 @@
+public class lastUpdated {
+	public static boolean isRunning = true;
+    public static void lastUpdatedOn(Set<Id> updated){
+        try{
+           isRunning=false;
+           List<Contact> contactList = new List<Contact>(); 
+               contactList = [SELECT Id,brand__last_Updated_On__c FROM Contact WHERE Id IN:update]; 
+           for(Contact contact : contactList){
+            	contact.brand__last_Updated_On__c = Date.today();
+        	}
+            update contactList;
+            system.debug(contactList);
+        }
+        catch(Exception e){
+            system.debug(e);
+        }
+        
+    }
+}
