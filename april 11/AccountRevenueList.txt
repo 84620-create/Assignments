@@ -8,7 +8,7 @@ List<Account> accList = new List<Account>();
             newAccList.add(account);
         }
     }
-    system.debug('List of Accounts Revenue greater than 100000 : '+ accounts);
+    system.debug('List of Accounts Revenue greater than 100000 : '+ newAccList);
 
 # SOQL Query
 
