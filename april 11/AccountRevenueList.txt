@@ -4,7 +4,7 @@ List<Account> accList = new List<Account>();
     accList = [SELECT Id, Name, Revenue__c FROM Account];
     List<Account> newAccList = new List<Account>();
     for(Account account : accList){
-        if(accList.Revenue__c > 100000){
+        if(account.Revenue__c > 100000){
             newAccList.add(account);
         }
     }
