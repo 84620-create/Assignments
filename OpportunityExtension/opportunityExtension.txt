@@ -1,0 +1,29 @@
+public class opportunityExtention{
+    public static void slots(List<Opportunity> opportunity){
+        Opportunity newOpportunity = [Select Id,Name,brand__Start_Date__c, brand__End_Date__c,Amount from Opportunity Where Id IN : opportunity];
+        
+        Date startDate = newOpportunity.brand__Start_Date__c;
+        Date endDate = newOpportunity.brand__End_Date__c;
+        Decimal slotAmount;
+        if(newOpportunity.Amount == null){
+            slotAmount = 0;
+        }
+        else{
+            slotAmount = newOpportunity.Amount / startDate.monthsBetween(endDate);
+        }
+        List<OpportunityExtension__c> oppList = new List<OpportunityExtension__c>();
+        
+        for(Integer i=0; i < startDate.monthsBetween(endDate); i++){
+            OpportunityExtension__c slot = new OpportunityExtension__c();
+            Date slotDate = startDate.addMonths(i);
+            slot.brand__Opportunity__c = newOpportunity.id;
+            slot.Name = newOpportunity.Name + ':Slot'+ new Integer(i+1);
+            slot.brand__Start_Date__c = slotDate.addDays(1);
+            slot.brand__End_Date__c = slotDate.addDays(Date.daysInMonth(slotDate.year(), slotDate.month()));
+            slot.brand__Amount__c = slotAmount;
+            oppList.add(slot);
+        }   
+        insert oppList;
+        
+    }
+}
