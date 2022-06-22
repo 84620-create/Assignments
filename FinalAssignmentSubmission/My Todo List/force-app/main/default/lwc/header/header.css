@@ -1,0 +1,8 @@
+.tasks{
+    display: inline-flex;
+    flex-wrap: wrap;
+  }
+  
+  .tasks > div{
+    margin: 6px;
+  }
